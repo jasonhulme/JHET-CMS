@@ -14,4 +14,4 @@ git fetch origin
 # make sure the local "master" branch is up-to-date
 git pull --rebase origin
 
-Test
+http://help.github.com/git-cheat-sheets/
