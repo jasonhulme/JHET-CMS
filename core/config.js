@@ -1,0 +1,3 @@
+exports.location = {
+    pluginFolder:   "./plugins"
+};

@@ -2,11 +2,10 @@
 var fs = require('fs');
 var http = require('http');
 var sys = require('sys');
-var path = require("path");
 var querystring = require('querystring');
 
-//Required node modules files:
-var mongo = require('./core/node_modules/mongoskin/');
+//Require configuration file:
+var config = require('./core/config.js');
 
 //Required core files:
 var pluginParser = require('./core/server/plugin-parser.js');
@@ -17,9 +16,9 @@ http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type' : 'text/html' });
     
-    var test = pluginParser.list(req);
+    var plugin = pluginParser.list(req, config.location.pluginFolder);
     
-    res.end(test);
+    res.end(plugin.list);
     
 }).listen(process.env.C9_PORT, "0.0.0.0");
 
