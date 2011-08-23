@@ -1,0 +1,15 @@
+git add .
+git commit -a -m 'c9 commit'
+git push origin master
+
+Merging:
+git merge origin master
+
+
+Pull:
+git push git@github.com:jasonhulme/JHET-CMS.git +master
+git checkout master
+# make sure we have the up-to-date "origin" branches
+git fetch origin
+# make sure the local "master" branch is up-to-date
+git pull --rebase origin
