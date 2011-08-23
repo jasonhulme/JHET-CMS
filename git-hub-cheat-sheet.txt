@@ -13,3 +13,5 @@ git checkout master
 git fetch origin
 # make sure the local "master" branch is up-to-date
 git pull --rebase origin
+
+Test
