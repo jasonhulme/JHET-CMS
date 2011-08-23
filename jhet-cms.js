@@ -22,4 +22,4 @@ http.createServer(function (req, res) {
     
 }).listen(process.env.C9_PORT, "0.0.0.0");
 
-console.log('Server running at http://0.0.0.0:process.env.C9_PORT/');
+console.log('Server running at http://0.0.0.0:/' + process.env.C9_PORT + '/');
