@@ -20,12 +20,11 @@ exports.page  =
 				return items[0].content;															
 			}
 		});
-	}
+	},
 	
-	update: function() 
-	{
+	update: function() {
 	 	
-	}
+	},
 	
 	create: function(siteID,pageTitle,content,subof)
 	{
