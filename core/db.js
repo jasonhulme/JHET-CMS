@@ -1,11 +1,11 @@
-var config = require('config.js');
+var config = require('./config.js');
 var mongo = require('mongoskin');
 
 
 exports.db = {
 
-    connect: function() {        
-        return mongo.db(config.dbConnect.dbConsole() + '/' + database).collection(table);
+    connect: function(database,table) {        
+        return mongo.db(config.dbConnect.dbConsole + '/' + database).collection(table);
     },
 
     insert: function(database, collection, insertJson) {
