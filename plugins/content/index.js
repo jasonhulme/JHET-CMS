@@ -3,7 +3,8 @@
 
 exports.content = {
     
-    plainText:function(pageID) {
+    get:function(pageID,callBack) {
+        
         
     }
     
