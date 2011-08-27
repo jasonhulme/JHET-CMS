@@ -1,12 +1,16 @@
+Sending Updates to GitHub:
 git add .
 git commit -a -m 'c9 commit'
 git push origin master
+
+Get Updates from Github:
+
 
 Merging:
 git merge origin master
 
 
-Pull:
+Pull from Fork:
 git push git@github.com:jasonhulme/JHET-CMS.git +master
 git checkout master
 # make sure we have the up-to-date "origin" branches
