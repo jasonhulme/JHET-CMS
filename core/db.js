@@ -25,17 +25,17 @@ exports.db = {
     findOne: function(database, collection, query, callBack) {
 
         var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
-        db.findOne(query,function(err, items) {
+        db.findOne(query,function(err, item) {
             if (err) {
-                callBack(null);
-                console.log(err);
+                callBack(null);               
             }
             else {
-                if (items === null) {
+                console.log(item);
+                if (item == null) {
                     callBack(null);                    
                 }
                 else {
-                    callBack(items);                   
+                    callBack(item);                   
                 }
             }
 
@@ -43,7 +43,7 @@ exports.db = {
 
     },
     
-    findMany: function(database, collection, query, callBack) {
+    find: function(database, collection, query, callBack) {
 
         var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
         db.find(query).toArray(function(err, items) {
@@ -70,15 +70,15 @@ exports.db = {
 
     },
 
-    updateMany: function(database, collection, query, updateJson) {
+    update: function(database, collection, query, updateJson) {
 
     },
 
-    removeOne: function(database, collection, query) {
+    delOne: function(database, collection, query) {
 
     },
 
-    removeMany: function(database, collection, query) {
+    del: function(database, collection, query) {
 
 
     }

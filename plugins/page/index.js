@@ -1,34 +1,33 @@
+var db      = require('../../core/db.js').db;
+var content = require('../content/').content;
 
-exports.page  = 
-{
-	exists: function(siteID,pageName)
-	{
-		return true;	
-	},
-	
-	get: function(siteID,pageTitle)
-	{
-		var db = dbconn.connect("cms","page");		
-		db.find({pageTitle:pageTitle.toString(),siteID:siteID.toString()}).toArray(function(err, items)
-		{				
-			if (items==null) 
-			{
-				return null;					
-			}
-			else
-			{
-				return items[0].content;															
-			}
-		});
-	},
-	
-	update: function() {
-	 	
-	},
-	
-	create: function(siteID,pageTitle,content,subof)
-	{
-			
-	}
+
+exports.page = {
+    exists: function(siteID, pageTitle) {
+        return true;
+    },
+
+    get: function(siteID, pageTitle, callBack) {
+        
+        db.findOne('jhetcms', 'page', {
+            pageTitle: pageTitle.toString(),
+            siteID: siteID.toString()
+        }, function(item) {
+            if (item == null) {
+                callBack(null);
+            }
+            else {                
+                callBack(item.content);
+            }
+        });
+    },
+
+    update: function() {
+
+    },
+
+    create: function(siteID, pageTitle, content, subof) {
+
+    }
 
 };
