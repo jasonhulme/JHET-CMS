@@ -1,22 +1,10 @@
-var db = require('./core/db.js').db;
-var content = require('./plugins/content/');
 
-db.connect('jhetcms', 'page').insert([{
-    pageTitle: 'new page',
-    content: 'blah'
-}], function(err, replies) {
-    if (err) {
-        console.log(err);
-    }
-    console.log(replies);
+var content = require('./plugins/content/').content;
 
-});
 
-db.find('jhetcms', 'page', [{
-    pageTitle: 'home'
-}], function(items) {
-    console.log(items);
+content.get('4e597a6eebe706ce6a000001', 'about us', function(reply) {
+    console.log(reply);
 });
 
 
-console.log('temp');
+console.log('temp started');

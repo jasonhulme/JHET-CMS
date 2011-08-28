@@ -8,22 +8,57 @@ exports.db = {
         return mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
     },
 
-    insert: function(database, collection, insertJson) {
+    insert: function(database, collection, insertJson, callBack) {
+
+        var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
+        db.insert(insertJson, function(err, replies) {
+            if (err) {
+                callBack(null);
+            }
+            else {
+                callBack(replies);
+            }
+        });
 
     },
+    
+    findOne: function(database, collection, query, callBack) {
 
-    find: function(database, collection, query, callBack) {
-
-        connect(database, collection).db.find(query).toArray(function(err, items) {
+        var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
+        db.findOne(query,function(err, items) {
             if (err) {
-               callBack(null);
+                callBack(null);
+                console.log(err);
             }
             else {
                 if (items === null) {
-                     callBack(null);
+                    callBack(null);                    
                 }
                 else {
-                     callBack(items);
+                    callBack(items);                   
+                }
+            }
+
+        });
+
+    },
+    
+    findMany: function(database, collection, query, callBack) {
+
+        var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
+        db.find(query).toArray(function(err, items) {
+            if (err) {
+                callBack(null);
+                console.log(err);
+            }
+            else {
+                if (items === null) {
+                    callBack(null);
+                    console.log('not found');
+                }
+                else {
+                    callBack(items);
+                    console.log(items);
                 }
             }
 
