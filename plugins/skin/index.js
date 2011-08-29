@@ -8,10 +8,15 @@ exports.skin = {
         db.findById('jhetcms', 'skin', skinID, function(skinHtml) {
             if (skinHtml == null) {
                 callBack(null);
-                console.log('{siteID:"' + siteID + '", _id:"' + skinID + '"}');
             }
             else {
-                callBack(skinHtml.templateHTML);
+                if (siteID == skinHtml.siteID) {
+                    callBack(skinHtml.templateHTML);
+                }
+                else {
+                    callBack(null);
+                }
+
             }
         })
 
