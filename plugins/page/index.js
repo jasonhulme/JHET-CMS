@@ -1,6 +1,6 @@
-var db      = require('../../core/db.js').db;
+var db = require('../../core/db.js').db;
 var content = require('../content/').content;
-
+var skin = require('../skin/').skin;
 
 exports.page = {
     exists: function(siteID, pageTitle) {
@@ -8,18 +8,33 @@ exports.page = {
     },
 
     get: function(siteID, pageTitle, callBack) {
-        
-        db.findOne('jhetcms', 'page', {
-            pageTitle: pageTitle.toString(),
-            siteID: siteID.toString()
-        }, function(item) {
-            if (item == null) {
+
+
+        content.get(siteID, pageTitle, function(page) {
+            if (page == null) {
                 callBack(null);
+                console.log('page not found' + siteID + pageTitle);
             }
-            else {                
-                callBack(item.content);
+            else {
+                skin.get(page.skinID, page.siteID, function(skinHtml) {
+                    if (skinHtml == null) {
+                        callBack(null);
+                        console.log('skin not found site:' + siteID + ' skin:' + page.skinID + ' pageID:' + page._id);
+                    }
+                    else {
+
+                        var pageConent = skinHtml;
+                        pageConent.replace(/\{\{content\}\}/g, page.content);
+                        pageConent.replace(/{{pageTitle}}/g, page.pageTitle);
+                        pageConent.replace(/{{pageID}}/g, page._id);
+                        callBack(pageConent);
+                    }
+
+                });
+
             }
         });
+
     },
 
     update: function() {

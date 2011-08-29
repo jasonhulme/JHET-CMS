@@ -21,66 +21,87 @@ exports.db = {
         });
 
     },
-    
+
     findOne: function(database, collection, query, callBack) {
 
         var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
-        db.findOne(query,function(err, item) {
+        db.findOne(query, function(err, item) {
             if (err) {
-                callBack(null);               
+                callBack(null);
             }
             else {
                 console.log(item);
                 if (item == null) {
-                    callBack(null);                    
-                }
-                else {
-                    callBack(item);                   
-                }
-            }
-
-        });
-
-    },
-    
-    find: function(database, collection, query, callBack) {
-
-        var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
-        db.find(query).toArray(function(err, items) {
-            if (err) {
-                callBack(null);
-                console.log(err);
-            }
-            else {
-                if (items === null) {
                     callBack(null);
-                    console.log('not found');
                 }
                 else {
-                    callBack(items);
-                    console.log(items);
+                    callBack(item);
                 }
             }
 
         });
-
+        
     },
 
-    updateOne: function(database, collection, query, updateJson) {
+        findById: function(database, collection, ID, callBack) {
 
-    },
+            var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
+            db.findById(ID, function(err, item) {
+                if (err) {
+                    callBack(null);
+                }
+                else {
+                    console.log(item);
+                    if (item == null) {
+                        callBack(null);
+                    }
+                    else {
+                        callBack(item);
+                    }
+                }
 
-    update: function(database, collection, query, updateJson) {
+            });
 
-    },
+        },
 
-    delOne: function(database, collection, query) {
+        find: function(database, collection, query, callBack) {
 
-    },
+            var db = mongo.db(config.dbConnect.dbConsole + '/' + database).collection(collection);
+            db.find(query).toArray(function(err, items) {
+                if (err) {
+                    callBack(null);
+                    console.log(err);
+                }
+                else {
+                    if (items == null) {
+                        callBack(null);
+                        console.log('not found');
+                    }
+                    else {
+                        callBack(items);
+                        console.log(items);
+                    }
+                }
 
-    del: function(database, collection, query) {
+            });
+
+        },
+
+        updateOne: function(database, collection, query, updateJson) {
+
+        },
+
+        update: function(database, collection, query, updateJson) {
+
+        },
+
+        delOne: function(database, collection, query) {
+
+        },
+
+        del: function(database, collection, query) {
 
 
-    }
+        }
 
-};
+    };

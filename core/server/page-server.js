@@ -17,6 +17,7 @@ http.createServer(function(request, response) {
         }
         else {
             var pageRequest = request.url.slice(1, request.url.length);
+            console.log(pageRequest);
             pageRequest = pageRequest.replace('_', ' ');
             page.get(siteId, pageRequest, function(result) {
                 if (result == null) {
