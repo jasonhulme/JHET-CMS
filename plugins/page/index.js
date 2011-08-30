@@ -21,12 +21,12 @@ exports.page = {
                         callBack(null);
                         console.log('skin not found site:' + siteID + ' skin:' + page.skinID + ' pageID:' + page._id);
                     }
-                    else {
+                    else { 
 
                         var pageConent = skinHtml;
-                        pageConent.replace(/\{\{content\}\}/g, page.content);
-                        pageConent.replace(/{{pageTitle}}/g, page.pageTitle);
-                        pageConent.replace(/{{pageID}}/g, page._id);
+                        pageConent = pageConent.replace(/\[\[content {area:\"main\"}\]\]/g, page.content);
+                        pageConent = pageConent.replace(/\{\{pageTitle\}\}/g, page.pageTitle);
+                        pageConent = pageConent.replace(/\{\{pageID\}\}/g, page._id);
                         callBack(pageConent);
                     }
 
