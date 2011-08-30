@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var page = require('../../plugins/page/').page;
 var site = require('../../plugins/site/').site;
 var http = require('http');
@@ -31,13 +30,3 @@ http.createServer(function(request, response) {
         }
     });
 }).listen(hostPort, hostIP);
-=======
-var http = require('http');
-
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(1337, "0.0.0.0");
-
-console.log('Server running at http://127.0.0.1:1337/');
->>>>>>> 92f284359607ad10c7ceea920f45d8ac1e2af0b0
