@@ -1,19 +1,35 @@
+<<<<<<< HEAD
 Sending Updates to GitHub:
+=======
+>>>>>>> 92f284359607ad10c7ceea920f45d8ac1e2af0b0
 git add .
 git commit -a -m 'c9 commit'
 git push origin master
 
+<<<<<<< HEAD
 Get Updates from Github:
 
 
+=======
+>>>>>>> 92f284359607ad10c7ceea920f45d8ac1e2af0b0
 Merging:
 git merge origin master
 
 
+<<<<<<< HEAD
 Pull from Fork:
+=======
+Pull:
+>>>>>>> 92f284359607ad10c7ceea920f45d8ac1e2af0b0
 git push git@github.com:jasonhulme/JHET-CMS.git +master
 git checkout master
 # make sure we have the up-to-date "origin" branches
 git fetch origin
 # make sure the local "master" branch is up-to-date
+<<<<<<< HEAD
 git pull --rebase origin
+=======
+git pull --rebase origin
+
+http://help.github.com/git-cheat-sheets/
+>>>>>>> 92f284359607ad10c7ceea920f45d8ac1e2af0b0

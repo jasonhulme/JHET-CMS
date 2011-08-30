@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 System Requirements
 Very fast (build on node.js)
 Slick, intuitive, interface (lots of jQuery!)
@@ -8,3 +9,8 @@ Simple but flexible template system. Designer only needs to know HTML to create 
 No WYSIWYG editor. A content layer template system is used in its place  
 3 different interfaces (content editor, designer, SEO provider)
 Modules Apps like FB
+=======
+first git project
+test editing
+Jason Adding a new line
+>>>>>>> 92f284359607ad10c7ceea920f45d8ac1e2af0b0
