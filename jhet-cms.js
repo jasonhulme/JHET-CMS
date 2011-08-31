@@ -9,7 +9,7 @@ var querystring = require('querystring');
 var config = require('./core/config.js');
 
 //Required core files:
-var pluginParser = require('./core/server/plugin-parser.js');
+var pp = require('./core/server/plugin-parser.js');
 
 //Server creation
 http.createServer(function (req, res) {
@@ -17,9 +17,9 @@ http.createServer(function (req, res) {
     
     res.writeHead(200, { 'Content-Type' : 'text/html' });
     
-    var plugin = pluginParser.list(req, config.location.pluginFolder);
+    var plugin = pp.pluginParser.get(req, config.location.pluginFolder);
     
-    res.end(plugin.list);
+    res.end();
     
 }).listen(process.env.C9_PORT, "0.0.0.0");
 
